@@ -8,6 +8,8 @@
 [Bb]uilds/
 /Assets/AssetStoreTools*
 
+!.Unity\ Game\ 1/Assets/*.meta
+
 # Visual Studio 2015 cache directory
 /.vs/
 
