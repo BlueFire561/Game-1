@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordMove : MonoBehaviour {
-    public float speed;
-    public float delay;
-    public Vector3 targetPos;
-    public Vector3 mouse_pos ;
+    public float speed; //Speed of sword
+    public float delay; //How long sword
+    public Vector3 targetPos; //Position of target
+    public Vector3 mouse_pos ; //Position of mouse
     public Transform target ; //Assign to the object you want to rotate
-    public Vector3 object_pos ;
-    public float angle;
-    public Transform Player;
+    public Vector3 object_pos ; //Position of object
+    public float angle; //Angle of sword
+    public Transform Player; //Player Object
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +33,6 @@ public class SwordMove : MonoBehaviour {
 
 
         mouse_pos = Input.mousePosition;
-        mouse_pos.z = 5.23f; //The distance between the camera and object
         object_pos = Camera.main.WorldToScreenPoint(target.position);
         mouse_pos.x = mouse_pos.x - object_pos.x;
         mouse_pos.y = mouse_pos.y - object_pos.y;
