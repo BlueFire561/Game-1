@@ -8,7 +8,6 @@
 [Bb]uilds/
 /Assets/AssetStoreTools*
 
-!.Unity\ Game\ 1/Assets/*.meta
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -90,7 +89,7 @@ artifacts/
 *_p.c
 *_i.h
 *.ilk
-*.meta
+!*.meta
 *.obj
 *.pch
 *.pgc
