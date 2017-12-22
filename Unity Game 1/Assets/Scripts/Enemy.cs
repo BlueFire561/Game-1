@@ -23,8 +23,6 @@ public class Enemy : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 
         // Move Forwards
-        rigidbody2D.velocity *= 0;
-        rigidbody2D.AddForce(transform.up * Speed * Time.fixedDeltaTime * 10);
-
+        rigidbody2D.MovePosition(transform.position + (transform.up * Speed * Time.fixedDeltaTime));
     }
 }
