@@ -25,4 +25,14 @@ public class Enemy : MonoBehaviour {
         // Move Forwards
         rigidbody2D.MovePosition(transform.position + (transform.up * Speed * Time.fixedDeltaTime));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Sword")
+        {
+            Debug.Log("Enemy Hit");
+            Destroy(this.gameObject);
+        }
+    }
+
 }
