@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  delay: 0.1
+  delay: 0.15
   targetPos: {x: 0, y: 0, z: 0}
   mouse_pos: {x: 0, y: 0, z: 0}
   target: {fileID: 4677452558930992}

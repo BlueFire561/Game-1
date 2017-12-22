@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50100402836789976}
   - component: {fileID: 61384774085374250}
   - component: {fileID: 114884336984624692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.005}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
-  Player: {fileID: 0}
 --- !u!212 &212228290624517714
 SpriteRenderer:
   m_ObjectHideFlags: 1
