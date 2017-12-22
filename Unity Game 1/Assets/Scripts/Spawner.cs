@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
+    public bool Active;
+
     public int SpawnSpeed;
     public GameObject EnemyPrefab;
+    private GameObject enemy;
     private float timerCounter;
 
     // Use this for initialization
@@ -21,7 +24,12 @@ public class Spawner : MonoBehaviour {
         if (timerCounter >= SpawnSpeed)
         {
             timerCounter -= SpawnSpeed;
-            Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+
+            if (Active)
+            {
+                enemy = Instantiate(EnemyPrefab, transform.position, Quaternion.identity) as GameObject;
+                enemy.transform.parent = GameObject.Find("Enemies").transform; 
+            }
         }
 
 	}
