@@ -5,11 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public int Speed;
-    public GameObject Player;
+    private GameObject Player;
     private Rigidbody2D rigidbody2D;
 	// Use this for initialization
 	void Start () {
         rigidbody2D = this.GetComponent<Rigidbody2D>();
+
+        Player = GameObject.FindWithTag("Player");
+
 	}
 	
 	// FixedUpdate is called once per fixeddeltatime
