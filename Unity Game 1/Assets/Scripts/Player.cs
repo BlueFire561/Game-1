@@ -67,6 +67,10 @@ public class Player : MonoBehaviour {
             invulnerable = false;
             ivFrameDurationCounter = 0f;
         }
+
+
+        // Health Bar
+        this.gameObject.GetComponent<HealthBar>().Value = HP;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
