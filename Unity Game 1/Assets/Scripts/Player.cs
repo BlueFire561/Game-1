@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
             counter += Time.fixedDeltaTime;
         }
 
-        if (Input.GetMouseButtonDown(0) && counter >= AttackCooldown)
+        if (Input.GetMouseButton(0) && counter >= AttackCooldown)
         {
             counter = 0f;
 

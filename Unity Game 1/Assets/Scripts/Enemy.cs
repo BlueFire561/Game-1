@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.tag == "Sword")
         {
-            Debug.Log("Enemy Hit");
             Destroy(this.gameObject);
         }
     }

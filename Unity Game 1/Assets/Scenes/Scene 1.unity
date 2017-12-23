@@ -5410,7 +5410,7 @@ MonoBehaviour:
   MovementSpeed: 4
   SwordPrefab: {fileID: 1591988658009930, guid: bb5a96740213e8d4796b0b6cdd3e7122,
     type: 2}
-  AttackCooldown: 1
+  AttackCooldown: 0.5
 --- !u!1 &514924978
 GameObject:
   m_ObjectHideFlags: 0
@@ -11455,7 +11455,7 @@ Transform:
   m_GameObject: {fileID: 1066953425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3.3333335}
-  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 511967232}
   m_RootOrder: 0
