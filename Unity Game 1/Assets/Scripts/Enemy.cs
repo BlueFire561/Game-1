@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    public float Damage;
     public int Speed;
     private GameObject Player;
     private Rigidbody2D rigidbody2D;
@@ -26,7 +27,10 @@ public class Enemy : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 
         // Move Forwards
-        rigidbody2D.MovePosition(transform.position + (transform.up * Speed * Time.fixedDeltaTime));
+        if ( Vector3.Distance(this.transform.position, Player.transform.position) > 2 )
+        {
+            rigidbody2D.MovePosition(transform.position + (transform.up * Speed * Time.fixedDeltaTime)); 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +39,7 @@ public class Enemy : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+        Debug.Log(collision);
     }
 
 }

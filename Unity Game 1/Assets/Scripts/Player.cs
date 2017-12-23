@@ -6,16 +6,27 @@ public class Player : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
 
+    public float HP;
+
+    public bool ForceInvulnerability;
+    private bool invulnerable;
+    public float IVFrameDuration;
+    private float ivFrameDurationCounter;
+
     public float MovementSpeed;
 
+
     public GameObject SwordPrefab;
+
     public float AttackCooldown;
-    private float counter;
+    private float cooldownCounter;
 
 	// Use this for initialization
 	void Start () {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        counter = 0f;
+        cooldownCounter = 0f;
+        ivFrameDurationCounter = 0f;
+        invulnerable = false;
 	}
 	
 	// Once per FixedDeltaTime
@@ -31,17 +42,45 @@ public class Player : MonoBehaviour {
 
 
         // Attack
-        if (counter < AttackCooldown)
+        if (cooldownCounter < AttackCooldown)
         {
-            counter += Time.fixedDeltaTime;
+            cooldownCounter += Time.fixedDeltaTime;
         }
 
-        if (Input.GetMouseButton(0) && counter >= AttackCooldown)
+        if (Input.GetMouseButton(0) && cooldownCounter >= AttackCooldown)
         {
-            counter = 0f;
+            cooldownCounter = 0f;
 
             // Cooldown over
             Instantiate(SwordPrefab, transform.position, Quaternion.identity);
         }
+
+
+        // Invulnerability Frames
+        if (invulnerable && ivFrameDurationCounter < IVFrameDuration)
+        {
+            ivFrameDurationCounter += Time.fixedDeltaTime;
+        }
+
+        if (ivFrameDurationCounter >= IVFrameDuration)
+        {
+            invulnerable = false;
+            ivFrameDurationCounter = 0f;
+        }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        // Enemy Collisions
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (!invulnerable)
+            {
+                Debug.Log("Took Damage");
+                HP -= collision.gameObject.GetComponent<Enemy>().Damage;
+                invulnerable = true;
+            }
+        }
+    }
+
 }

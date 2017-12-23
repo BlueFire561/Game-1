@@ -5269,9 +5269,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 511967232}
+  - component: {fileID: 511967235}
   - component: {fileID: 511967231}
   - component: {fileID: 511967230}
-  - component: {fileID: 511967235}
   - component: {fileID: 511967233}
   m_Layer: 8
   m_Name: Player
@@ -5407,6 +5407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c658e6007a0b2b47a0c370252c7b176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 10
+  ForceInvulnerability: 0
+  IVFrameDuration: 1
   MovementSpeed: 4
   SwordPrefab: {fileID: 1591988658009930, guid: bb5a96740213e8d4796b0b6cdd3e7122,
     type: 2}
@@ -18891,6 +18894,10 @@ Prefab:
     - target: {fileID: 4009684605234574, guid: 97b857b47284f914fb17b5a96d489178, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155806009977262, guid: 97b857b47284f914fb17b5a96d489178, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b857b47284f914fb17b5a96d489178, type: 2}
