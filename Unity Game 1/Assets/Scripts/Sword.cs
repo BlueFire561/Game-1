@@ -6,6 +6,7 @@ public class Sword : MonoBehaviour {
 
     public float MovementSpeed;
     public float DestroyTime;
+    public float Damage;
 
     private Vector3 mousePosition;
     private Vector3 velocity;

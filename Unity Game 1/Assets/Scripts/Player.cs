@@ -80,7 +80,6 @@ public class Player : MonoBehaviour {
         {
             if (!invulnerable)
             {
-                Debug.Log("Enemy Hit");
                 HP -= collision.gameObject.GetComponent<Enemy>().Damage;
                 invulnerable = true;
             }
@@ -94,7 +93,6 @@ public class Player : MonoBehaviour {
         {
             if (!invulnerable)
             {
-                Debug.Log("Bullet Hit");
                 HP -= collision.gameObject.GetComponent<Bullet>().Damage;
                 invulnerable = true;
             }

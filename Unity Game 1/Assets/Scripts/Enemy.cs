@@ -6,6 +6,12 @@ public class Enemy : MonoBehaviour {
 
     public float StopDistance;
 
+    public float HP;
+
+    private bool invulnerable;
+    public float IVFrameDuration;
+    private float ivFrameDurationCounter;
+
     public GameObject BulletPrefab;
     public float Damage;
     public float MaxFireDistance;
@@ -57,13 +63,41 @@ public class Enemy : MonoBehaviour {
             bullet = Instantiate(BulletPrefab, transform.position, this.transform.rotation, GameObject.Find("Bullets").transform);
             attackCooldownCounter = 0f;
         }
+
+
+        // Invulnerability Frames
+        if (invulnerable && ivFrameDurationCounter < IVFrameDuration)
+        {
+            ivFrameDurationCounter += Time.fixedDeltaTime;
+        }
+
+        if (ivFrameDurationCounter >= IVFrameDuration)
+        {
+            invulnerable = false;
+            ivFrameDurationCounter = 0f;
+        }
+
+
+        // Health Bar
+        this.gameObject.GetComponent<HealthBar>().Value = HP;
+
+
+        // Death Event
+        if (HP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Sword")
         {
-            Destroy(this.gameObject);
+            if (!invulnerable)
+            {
+                HP -= collision.GetComponent<Sword>().Damage;
+                invulnerable = true;
+            }
         }
         Debug.Log(collision);
     }
