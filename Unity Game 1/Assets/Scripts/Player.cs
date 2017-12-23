@@ -91,6 +91,7 @@ public class Player : MonoBehaviour {
         // Bullet Collisions
         if (collision.gameObject.tag == "Bullet")
         {
+            Destroy(collision.gameObject);
             if (!invulnerable)
             {
                 HP -= collision.gameObject.GetComponent<Bullet>().Damage;

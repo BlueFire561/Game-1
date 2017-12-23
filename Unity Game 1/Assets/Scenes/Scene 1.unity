@@ -1174,6 +1174,11 @@ Prefab:
       propertyPath: m_Name
       value: Spawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: SpawnSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b857b47284f914fb17b5a96d489178, type: 2}
   m_IsPrefabParent: 0
@@ -2239,6 +2244,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1155806009977262, guid: 97b857b47284f914fb17b5a96d489178, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: SpawnSpeed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

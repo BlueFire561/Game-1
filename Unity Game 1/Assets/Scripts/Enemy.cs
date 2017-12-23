@@ -93,13 +93,13 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.tag == "Sword")
         {
+            Destroy(collision.gameObject);
             if (!invulnerable)
             {
                 HP -= collision.GetComponent<Sword>().Damage;
                 invulnerable = true;
             }
         }
-        Debug.Log(collision);
     }
 
 }

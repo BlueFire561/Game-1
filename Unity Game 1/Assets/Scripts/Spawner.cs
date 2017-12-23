@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour {
 
     public bool Active;
 
-    public int SpawnSpeed;
+    public float SpawnSpeed;
     public GameObject EnemyPrefab;
     private GameObject enemy;
     private float timerCounter;
