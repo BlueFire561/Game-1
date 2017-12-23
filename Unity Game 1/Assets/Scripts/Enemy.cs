@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    public float StopDistance;
+
+    public GameObject BulletPrefab;
     public float Damage;
+    public float MaxFireDistance;
     public int Speed;
     private GameObject Player;
     private Rigidbody2D rigidbody2D;
+
+    private GameObject bullet;
+
+    public float AttackCooldown;
+    private float attackCooldownCounter;
+
 	// Use this for initialization
 	void Start () {
         rigidbody2D = this.GetComponent<Rigidbody2D>();
 
         Player = GameObject.FindWithTag("Player");
-
 	}
 	
 	// FixedUpdate is called once per fixeddeltatime
@@ -26,10 +35,27 @@ public class Enemy : MonoBehaviour {
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 
+
         // Move Forwards
-        if ( Vector3.Distance(this.transform.position, Player.transform.position) > 2 )
+        Vector3 velocity = transform.up * Speed * Time.fixedDeltaTime;
+        if (Vector3.Distance(velocity + transform.position, Player.transform.position) < StopDistance)
         {
-            rigidbody2D.MovePosition(transform.position + (transform.up * Speed * Time.fixedDeltaTime)); 
+            velocity *= 0;
+        }
+
+        rigidbody2D.MovePosition(transform.position + velocity);
+
+
+        // Attack
+        if (attackCooldownCounter < AttackCooldown)
+        {
+            attackCooldownCounter += Time.fixedDeltaTime;
+        }
+
+        if (Vector3.Distance(this.transform.position, Player.transform.position) < MaxFireDistance && attackCooldownCounter >= AttackCooldown)
+        {
+            bullet = Instantiate(BulletPrefab, transform.position, this.transform.rotation, GameObject.Find("Bullets").transform);
+            attackCooldownCounter = 0f;
         }
     }
 

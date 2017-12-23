@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
             cooldownCounter = 0f;
 
             // Cooldown over
-            Instantiate(SwordPrefab, transform.position, Quaternion.identity);
+            Instantiate(SwordPrefab, transform.position, Quaternion.identity, GameObject.Find("Bullets").transform);
         }
 
 
@@ -76,8 +76,22 @@ public class Player : MonoBehaviour {
         {
             if (!invulnerable)
             {
-                Debug.Log("Took Damage");
+                Debug.Log("Enemy Hit");
                 HP -= collision.gameObject.GetComponent<Enemy>().Damage;
+                invulnerable = true;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Bullet Collisions
+        if (collision.gameObject.tag == "Bullet")
+        {
+            if (!invulnerable)
+            {
+                Debug.Log("Bullet Hit");
+                HP -= collision.gameObject.GetComponent<Bullet>().Damage;
                 invulnerable = true;
             }
         }
