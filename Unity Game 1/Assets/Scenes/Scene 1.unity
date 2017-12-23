@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  ForceInvulnerability: 0
+  ForceInvulnerability: 1
   IVFrameDuration: 1
   MovementSpeed: 4
   SwordPrefab: {fileID: 1591988658009930, guid: bb5a96740213e8d4796b0b6cdd3e7122,
@@ -1177,6 +1177,16 @@ Prefab:
     - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
         type: 2}
       propertyPath: SpawnSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: IVFrameDuration
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2249,6 +2259,16 @@ Prefab:
     - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
         type: 2}
       propertyPath: SpawnSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454566668902554, guid: 97b857b47284f914fb17b5a96d489178,
+        type: 2}
+      propertyPath: IVFrameDuration
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
